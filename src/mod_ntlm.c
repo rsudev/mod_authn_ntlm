@@ -85,6 +85,9 @@ static const command_rec sspi_cmds[] =
 	AP_INIT_FLAG("NTLMChainAuth", ap_set_flag_slot,
                  (void *) APR_OFFSETOF(sspi_config_rec, sspi_chain_auth), OR_AUTHCFG, 
                  "set to 'on' if you want an alternative authorization module like SVNPathAuthz to work at the same level"),
+	AP_INIT_TAKE1("NTLMAddUserHeader", ap_set_string_slot,
+				 (void *) APR_OFFSETOF(sspi_config_rec, sspi_add_user_header), OR_AUTHCFG,
+				 "Add Header key with this Name, which holds the authenticated user."),
     {NULL}
 };
 

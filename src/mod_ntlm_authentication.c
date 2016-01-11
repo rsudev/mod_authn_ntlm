@@ -653,5 +653,11 @@ int authenticate_sspi_user(request_rec *r)
 	ap_log_rerror(APLOG_MARK, APLOG_DEBUG, 0, r, SSPILOGNO(00009)
 		"Authenticated user: %s", r->user);
 
+	if (ctx.crec->sspi_add_user_header != NULL) {
+		apr_table_set(r->headers_in, ctx.crec->sspi_add_user_header, r->user);
+	} else {
+		ap_log_rerror(APLOG_MARK, APLOG_DEBUG, 0, r, SSPILOGNO(00010) "Don't add Header to this request.");
+	}
+
 	return OK;
 }
