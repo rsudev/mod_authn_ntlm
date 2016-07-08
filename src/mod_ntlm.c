@@ -90,6 +90,9 @@ static const command_rec sspi_cmds[] =
                  "Set to on to allow requests pass even when user not really authorized "
                  "This is needed if same resources can be access with and without NTLM auth"),
 
+	AP_INIT_TAKE1("NTLMAddUserHeader", ap_set_string_slot,
+                 (void *) APR_OFFSETOF(sspi_config_rec, sspi_add_user_header), OR_AUTHCFG,
+                 "Add Header key with this Name, which holds the authenticated user."),
     {NULL}
 };
 

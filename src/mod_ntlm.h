@@ -119,6 +119,7 @@ typedef struct sspi_config_struct {
     unsigned int sspi_per_request_auth;
 	unsigned int sspi_chain_auth;
     char *sspi_packages;
+    char *sspi_add_user_header;
 } sspi_config_rec;
 
 typedef enum {
